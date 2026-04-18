@@ -2,15 +2,18 @@ from getChoice import getChoice
 from introHistory import introHistory
 from history import history, toFight
 from colorama import Fore, Style, init
+from rpg_game_person import createPerson
 import pyfiglet
 import os
+
+init()
 
 title = pyfiglet.figlet_format("""
                                Mundo de
                                 Eldoria """)
 print(title)
 
-init()
+createPerson()
   
 introHistory()
 choice = getChoice()
