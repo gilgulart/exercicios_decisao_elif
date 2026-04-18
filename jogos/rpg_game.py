@@ -8,9 +8,7 @@ import os
 
 init()
 
-title = pyfiglet.figlet_format("""
-                               Mundo de
-                                Eldoria """)
+title = pyfiglet.figlet_format("""Mundo de Eldoria """)
 print(title)
 
 createPerson()
