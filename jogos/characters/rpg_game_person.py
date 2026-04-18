@@ -1,4 +1,4 @@
-from getChoice import getChoice
+from jogos.systems.getChoice import getChoice
 from colorama import Fore, Style, init
 
 init()
