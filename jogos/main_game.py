@@ -1,6 +1,6 @@
 from jogos.arts.ascii_arts import title
-from jogos.systems.getChoice import getChoice
-from jogos.systems.map import showMap, choiceMap
+from jogos.systems.getChoice import getChoice, choiceMap
+from jogos.systems.map import showMap
 from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.story.introHistory import introHistory
@@ -76,7 +76,22 @@ def main():
         transition(.2)
         
     
+    showMap()
     choiceMap()
+    
+    if choice == 1:
+      print("história Planícies douradas + combate")
+    
+    elif choice == 2:
+        print("história Pântano Arcano + combate")
+
+    elif choice == 3:
+        print("história Montanhas Geladas + combate")
+
+    elif choice == 4:
+        print("história Terras Vulcânicas + combate")
+
+    
 
 
 if __name__ == "__main__":
