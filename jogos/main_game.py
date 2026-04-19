@@ -77,7 +77,7 @@ def main():
         
     
     showMap()
-    choiceMap()
+    choice = choiceMap()
     
     if choice == 1:
       print("história Planícies douradas + combate")
