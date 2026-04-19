@@ -146,4 +146,3 @@ bossesLendarios = [
     deusGuerra,
     entidadeCosmica
     ]
-

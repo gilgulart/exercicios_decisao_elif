@@ -16,6 +16,11 @@ COR_ARQUEIRO = Fore.WHITE   # branco
 def createPerson():
     def classePersonagem():
         print("""
+        Escolha o seu Herói, você guiará este guerreiro nesta jornada épica
+        ---------------------------------------------------------------
+        """)
+        
+        print("""
             Classe do personagem: 
             1 - Orc 
             2 - Mago sombrio
@@ -74,7 +79,8 @@ def createPerson():
     cabelo = corCabelo()
     olho = corOlhos()
 
-    print(f"""
+    
+    playerMale = (f"""
     Classe: {classe}
     HP: {hp}
     ATK: {atk}
@@ -90,3 +96,5 @@ def createPerson():
     {cor_corpo}     / \\
     {cor_corpo}    /   \\{RESET}
     """)
+    
+    print(playerMale)

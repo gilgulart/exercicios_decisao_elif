@@ -1,8 +1,7 @@
 def getChoice():
-    while True:
         try:
-            choice = int(input("Digite o número da sua escolha: "))
-            if choice <= 0 or choice > 3:
+            choice = int(input("Faça a sua escolha: "))
+            if choice < 0 or choice > 4:
                 print("Digite um valor válido")
             else:
                 return choice
