@@ -1,7 +1,7 @@
 from jogos.systems.getChoice import getChoice
 from colorama import Fore, Style, init
-from rpg_equipament import *
-from rpg_boss import *
+from jogos.items.rpg_equipament import *
+from jogos.characters.rpg_boss import *
 
 
 init()
@@ -40,7 +40,7 @@ class Person:
         self.experienciaNecessaria = 20
 
         # CLASSE
-        print("""
+        print(Fore.WHITE + """
         Classe do personagem:
         1 - Orc
         2 - Mago sombrio
@@ -137,7 +137,7 @@ class Person:
     HP: {self.hp}
     ATK: {self.dano}
     DEF: {self.resistencia}
-{self.nivel}
+    LVL: {self.nivel}
 
       {self.cabelo}
     {self.cor}  |{self.olho}  {self.olho} |
@@ -150,4 +150,4 @@ class Person:
     {self.cor}    /   \\{RESET}
     """)
 
-jogador = Person()
+# jogador = Person()
