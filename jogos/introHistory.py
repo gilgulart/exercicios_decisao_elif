@@ -3,6 +3,8 @@ def introHistory():
           Você é um aventureiro que recebeu uma missão: 
           encontrar um cristal mágico perdido na Floresta de Eldoria.
           Dizem que criaturas estranhas vivem lá dentro.
+          Encontre o elixir para vencer o jogo,
+          sua jornada será um desafio em tanto!
         ---------------------------------------------------------------""")
   
   print("""
