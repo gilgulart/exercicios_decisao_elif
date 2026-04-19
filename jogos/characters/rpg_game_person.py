@@ -38,7 +38,7 @@ class Person:
         Gênero do(a) personagem:
         1 - Masculino
         2 - Feminino
-        """.center(WIDTH))
+        """)
         choice = getChoice()
         if choice == 1:
             self.genero = "Masculino"
@@ -52,7 +52,7 @@ class Person:
         1 - Orc
         2 - Mago sombrio
         3 - Arqueiro da luz
-        """.center(WIDTH))
+        """)
         choice = getChoice()
 
         if choice == 1:
@@ -83,7 +83,7 @@ class Person:
         1 - Castanhos
         2 - Verdes
         3 - Azuis
-        """.center(WIDTH))
+        """)
         choice = getChoice()
 
         if choice == 1:
@@ -100,7 +100,7 @@ class Person:
         1 - Loiro
         2 - Castanho
         3 - Ruivo
-        """.center(WIDTH))
+        """)
         choice = getChoice()
         
         if self.genero == "Masculino":
@@ -127,17 +127,17 @@ class Person:
          if len(self.mochila) == 0:
             return None
          else:
-            print("Itens disponíveis na mochila:".center(WIDTH))
+            print("Itens disponíveis na mochila:")
             for index, item in enumerate(self.mochila):
                 print(f"{index + 1}. {item.nomeItem}")
             while True:
-                    choice = int(input("Digite o número do item que deseja usar: ".center(WIDTH)))
+                    choice = int(input("Digite o número do item que deseja usar: "))
                     if 1 <= choice <= len(self.mochila):
                         self.mochila[choice - 1].mostrarAtributosItem()
                         self.mochila[choice - 1].aplicarEfeito(self)
                         break
                     else:
-                        print("Digite um número válido.".center(WIDTH))
+                        print("Digite um número válido.")
 
     def atualizar(self):
         while self.experienciaNecessaria <= self.experienciaAtual:
