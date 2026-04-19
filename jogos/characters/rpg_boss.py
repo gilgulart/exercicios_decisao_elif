@@ -1,4 +1,4 @@
-from rpg_equipament import *
+from jogos.items.rpg_equipament import *
 
 class Boss:
 

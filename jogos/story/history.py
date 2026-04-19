@@ -1,4 +1,5 @@
 import random
+from jogos.systems.prompt import type_text
 
 
 def history(weapon, enemy):
