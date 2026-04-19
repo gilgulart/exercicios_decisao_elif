@@ -12,4 +12,4 @@ def title():
     type_text("Atravesse os reinos, enfrente as sombras, conquiste a vida")
     
     time.sleep(2)
-    transition()
+    transition(0.2)

@@ -1,8 +1,8 @@
 import time
 import os
 
-def transition():
+def transition(seg):
    
-    time.sleep(0.2)
+    time.sleep(seg)
 
     os.system("cls" if os.name == "nt" else "clear")
