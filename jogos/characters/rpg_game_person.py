@@ -1,7 +1,11 @@
 from jogos.systems.getChoice import getChoice
 from colorama import Fore, Style, init
+from rpg_equipament import *
+from rpg_boss import *
+
 
 init()
+
 
 RESET = Style.RESET_ALL
 AMARELO = Fore.YELLOW
@@ -13,88 +17,137 @@ COR_ORC = Fore.GREEN      # verde
 COR_MAGO = Fore.BLACK       # preto
 COR_ARQUEIRO = Fore.WHITE   # branco
 
-def createPerson():
-    def classePersonagem():
-        print("""
-        Escolha o seu Herói, você guiará este guerreiro nesta jornada épica
-        ---------------------------------------------------------------
-        """)
-        
-        print("""
-            Classe do personagem: 
-            1 - Orc 
-            2 - Mago sombrio
-            3 - Arqueiro da luz 
-        ---------------------------------------------------------------
-        """)
-        choiceClass = getChoice()
 
-        if choiceClass == 1:
-            return "Orc", 150, 20, 15, COR_ORC
-        elif choiceClass == 2:
-            return "Mago", 80, 30, 5, COR_MAGO
+def getChoice():
+    while True:
+        try:
+            choice = int(input("Digite o número da sua escolha: "))
+            if choice <= 0 or choice > 3:
+                print("Digite um valor válido")
+            else:
+                return choice
+        except ValueError:
+            print("Digite um número válido")
+
+
+class Person:
+    def __init__(self):
+        self.criar_personagem()
+
+    def criar_personagem(self):
+        self.experienciaAtual = 0
+        self.nivel = 1
+        self.experienciaNecessaria = 20
+
+        # CLASSE
+        print("""
+        Classe do personagem:
+        1 - Orc
+        2 - Mago sombrio
+        3 - Arqueiro da luz
+        """)
+        choice = getChoice()
+
+        if choice == 1:
+            self.classe = "Orc"
+            self.hp = 150
+            self.dano = 10
+            self.resistencia = 15
+            self.cor = COR_ORC
+
+        elif choice == 2:
+            self.classe = "Mago"
+            self.hp = 80
+            self.dano = 15
+            self.resistencia = 5
+            self.cor = COR_MAGO
+
         else:
-            return "Arqueiro", 100, 25, 10, COR_ARQUEIRO
+            self.classe = "Arqueiro"
+            self.hp = 100
+            self.dano = 12
+            self.resistencia = 10
+            self.cor = COR_ARQUEIRO
 
 
-    def corOlhos():
+        # OLHOS
         print("""
-            Cor dos olhos: 
-            1 - Castanhos
-            2 - Verdes
-            3 - Azuis
-        ---------------------------------------------------------------
+        Cor dos olhos:
+        1 - Castanhos
+        2 - Verdes
+        3 - Azuis
         """)
-        choiceEyes = getChoice()
+        choice = getChoice()
 
-        if choiceEyes == 1:
-            return "👁️"
-        elif choiceEyes == 2:
-            return "🟢"
+        if choice == 1:
+            self.olho = "👁️ "
+        elif choice == 2:
+            self.olho = "🟢"
         else:
-            return "🧿"
+            self.olho = "🧿"
 
 
-    def corCabelo():
+        # CABELO
         print("""
-            Cor do cabelo: 
-            1 - Loiro
-            2 - Castanho
-            3 - Ruivo
-        ---------------------------------------------------------------
+        Cor do cabelo:
+        1 - Loiro
+        2 - Castanho
+        3 - Ruivo
         """)
-        choiceHair = getChoice()
+        choice = getChoice()
 
-        if choiceHair == 1:
-            return AMARELO + "/////////" + RESET
-        elif choiceHair == 2:
-            return CASTANHO + "/////////" + RESET
+        if choice == 1:
+            self.cabelo = AMARELO + "/////////" + RESET
+        elif choice == 2:
+            self.cabelo = CASTANHO + "/////////" + RESET
         else:
-            return RUIVO + "/////////" + RESET
+            self.cabelo = RUIVO + "/////////" + RESET
 
+    def mochilaItens(self):
+        self.mochila = [] 
+        for i in todosBosses:
+            if i.derrotado == True:
+                self.mochila.append(i.loot)
 
-    # ===== EXECUÇÃO =====
+    def escolherItem(self):
+         if len(self.mochila) == 0:
+            return None
+         else:
+            print("Itens disponíveis na mochila:")
+            for index, item in enumerate(self.mochila):
+                print(f"{index + 1}. {item.nomeItem}")
+            while True:
+                    choice = int(input("Digite o número do item que deseja usar: "))
+                    if 1 <= choice <= len(self.mochila):
+                        self.mochila[choice - 1].mostrarAtributosItem()
+                        self.mochila[choice - 1].aplicarEfeito(self)
+                        break
+                    else:
+                        print("Digite um número válido.")
 
-    classe, hp, atk, defesa, cor_corpo = classePersonagem()
-    cabelo = corCabelo()
-    olho = corOlhos()
-
+    def atualizar(self):
+        while self.experienciaNecessaria <= self.experienciaAtual:
+            self.nivel = self.nivel + 1
+            self.experienciaNecessaria = (self.experienciaNecessaria*50)/100 + self.experienciaNecessaria
+            self.dano = self.dano + (self.nivel*2)*0.1
     
-    playerMale = (f"""
-    Classe: {classe}
-    HP: {hp}
-    ATK: {atk}
-    DEF: {defesa}
+    def mostrar(self):
+        print(f"""
+    Classe: {self.classe}
+    HP: {self.hp}
+    ATK: {self.dano}
+    DEF: {self.resistencia}
+{self.nivel}
 
-    {cabelo}
-    {cor_corpo}  |{olho}   {olho}  |
-    {cor_corpo}  |   ^   |
-    {cor_corpo}  |  ---  |
-    {cor_corpo}   \\_____/
-    {cor_corpo}    / | \\
-    {cor_corpo}   /  |  \\
-    {cor_corpo}     / \\
-    {cor_corpo}    /   \\{RESET}
+      {self.cabelo}
+    {self.cor}  |{self.olho}  {self.olho} |
+    {self.cor}  |   ^   |
+    {self.cor}  |  ---  |
+    {self.cor}   \\_____/
+    {self.cor}    / | \\
+    {self.cor}   /  |  \\
+    {self.cor}     / \\
+    {self.cor}    /   \\{RESET}
     """)
-    
-    print(playerMale)
+
+jogador = Person()
