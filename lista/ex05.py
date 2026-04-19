@@ -1,24 +1,20 @@
-nota1 = float(input("Digite a sua nota: "))
-nota2 = float(input("Digite a sua nota: "))
+print("Os dias da semana correspodente (1-Domingo, 2- Segunda, etc.) ")
+day_name = input("Digite o dia da semana: ").strip()
 
-average = (nota1 + nota2) / 2
-
-def showResult(n1: float, n2: float, m: float, c: str, msg: str):
-    print(f"""
-        ----------------- BOLETIM -----------------
-            Nota 1 :{n1}            Nota 2: {n2}
-            Média: {m}              conceito: {c}
-                           {msg}
-         """)
-
-if average >= 9.00 and average <= 10.00:
-    showResult(nota1, nota2, average, 'A', "APROVADO")
-
-elif average >= 7.5:
-    showResult(nota1, nota2, average, 'B', "APROVADO")
-elif average >= 6.00:
-    showResult(nota1, nota2, average, 'C', "APROVADO")
-elif average >= 4.00:
-    showResult(nota1, nota2, average, 'D', "REPROVADO")
-elif average < 4:
-    showResult(nota1, nota2, average, 'E', "REPROVADO")
+if day_name in ("1", "2", "3", "4", "5", "6", "7"):
+    if day_name in ("1"):
+        print("Hoje é Domingo!")
+    if day_name in ("2"):
+        print("Hoje é Segunda-feira!")
+    if day_name in ("3"):
+        print("Hoje é Terça-feira!")
+    if day_name in ("4"):
+        print("Hoje é Quarta-feira!")
+    if day_name in ("5"):
+        print("Hoje é Quinta-feira!")
+    if day_name in ("6"):
+        print("Hoje é Sexta-feira!")
+    if day_name in ("7"):
+        print("Hoje é Sábado!")
+else:
+    print("Valor Inválido!")

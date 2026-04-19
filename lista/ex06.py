@@ -1,16 +1,23 @@
-a = float(input("Digite o primeiro lado do triângulo: "))
-b = float(input("Digite o segundo lado do triângulo: "))
-c = float(input("Digite o terceiro lado do triângulo: "))
+nota1 = float(input("Digite a sua nota: "))
+nota2 = float(input("Digite a sua nota: "))
 
-if a + b > c and a + c > b and b + c > a:
-    print("Os lados formam um triângulo")
-else:
-    print("Os lados não formam um triângulo!")
-    exit()
+average = (nota1 + nota2) / 2
 
-if a == b == c:
-    print("O triângulo é um triângulo Equilátero")
-elif a == b or b == c or c == a:
-    print("O triângulo é um triângulo Isósceles")
-else:
-    print("o triângulo é um triângulo Escaleno")
+def showResult(n1: float, n2: float, m: float, c: str, msg: str):
+    print(f"""
+----------------- BOLETIM -----------------
+    Nota 1: {n1}            Nota 2: {n2}
+    Média: {m}              conceito: {c}
+                {msg}""")
+
+if average >= 9.00 and average <= 10.00:
+    showResult(nota1, nota2, average, 'A', "APROVADO")
+
+elif average >= 7.5:
+    showResult(nota1, nota2, average, 'B', "APROVADO")
+elif average >= 6.00:
+    showResult(nota1, nota2, average, 'C', "APROVADO")
+elif average >= 4.00:
+    showResult(nota1, nota2, average, 'D', "REPROVADO")
+elif average < 4:
+    showResult(nota1, nota2, average, 'E', "REPROVADO")

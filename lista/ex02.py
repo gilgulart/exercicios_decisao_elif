@@ -14,5 +14,5 @@ if num2 < maior and num2 > menor:
 if num3 < maior and num3 > menor:
     print(f"{maior}, {num3}, {menor}")
 
-
-print(f"Os números em ordem decrescentes é {ord}")
+if num1 == num2 and num1 == num3:
+    print(f"{num1}, {num2} e {num3} são iguais")
