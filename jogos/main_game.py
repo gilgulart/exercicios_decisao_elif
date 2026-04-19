@@ -27,7 +27,7 @@ def main():
 
     player = Person()
     player.mostrar()
-    time.sleep(1.5)
+    time.sleep(2.5)
     transition(.2)
     
     if player.genero == "Masculino":
@@ -66,20 +66,17 @@ def main():
         transition(.2)
 
         type_text("""
-    Assim que as pessoas o avistam, já o reconhecem das lendas:
-    seu nome é Gilberto, o Pombo.""")
+    Assim que as pessoas o avistam, já o reconhecem das lendas: seu nome é Gilberto, o Pombo.""")
         transition(.2)
 
         type_text("""
     Diante desse caos, e sabendo que alguém precisava detê-lo antes que
     destruísse toda a Planície Dourada,
-    a meninoa pegou seus equipamentos e desafiou a fera para um combate.""")
+    a menina pegou seus equipamentos e desafiou a fera para um combate.""")
         transition(.2)
-
-
-    # os.system("cls")
-
-    # player = createPerson()  
+        
+    
+    choiceMap()
 
 
 if __name__ == "__main__":

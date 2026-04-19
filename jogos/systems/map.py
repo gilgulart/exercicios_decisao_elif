@@ -61,20 +61,18 @@ Escolha para onde viajar:
 ╚═══════════════════════════════════════════════════════════════╝
 """)
 
-        
-# choice = getChoice()
 
-# if choice == 1:
-#     print("história Planícies douradas + combate")
+if choice == 1:
+    print("história Planícies douradas + combate")
     
-# elif choice == 2:
-#     print("história Pântano Arcano + combate")
+elif choice == 2:
+    print("história Pântano Arcano + combate")
 
-# elif choice == 3:
-#     print("história Montanhas Geladas + combate")
+elif choice == 3:
+    print("história Montanhas Geladas + combate")
 
-# elif choice == 4:
-#     print("história Terras Vulcânicas + combate")
+elif choice == 4:
+    print("história Terras Vulcânicas + combate")
 
-# elif choice == 0:
-#     exit()
+elif choice == 0:
+    exit()
