@@ -20,4 +20,3 @@ if sal > 0:
             
 else:
     print("Digite um valor válido")
-

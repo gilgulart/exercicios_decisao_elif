@@ -16,3 +16,4 @@ def title():
     
     time.sleep(2)
     transition(0.2)
+    

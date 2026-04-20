@@ -163,5 +163,3 @@ class Person:
     {self.cor}     / \\
     {self.cor}    /   \\{RESET}
     """)
-
-# jogador = Person()

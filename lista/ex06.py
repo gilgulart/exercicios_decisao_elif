@@ -21,3 +21,4 @@ elif average >= 4.00:
     showResult(nota1, nota2, average, 'D', "REPROVADO")
 elif average < 4:
     showResult(nota1, nota2, average, 'E', "REPROVADO")
+    

@@ -13,4 +13,3 @@ def introHistory():
           2. Seguir pela trilha iluminada pelo sol.
           3. Explorar ao redor da floresta.
         ---------------------------------------------------------------""")
-  

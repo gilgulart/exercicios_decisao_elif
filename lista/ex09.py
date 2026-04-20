@@ -29,3 +29,4 @@ if 0 <= media <= 10:
         print(f"O aluno está: Aprovado com Distinção")
 else:
     print("Valor Inválido!")
+    

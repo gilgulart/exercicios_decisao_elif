@@ -14,3 +14,4 @@ elif a == b or b == c or c == a:
     print("O triângulo é um triângulo Isósceles")
 else:
     print("o triângulo é um triângulo Escaleno")
+    

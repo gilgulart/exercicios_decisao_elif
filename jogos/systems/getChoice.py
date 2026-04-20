@@ -24,5 +24,3 @@ def choiceMap():
                 return choice
         except ValueError:
             print("Digite um número válido".center(WIDTH))
-
-            

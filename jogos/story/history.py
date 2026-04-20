@@ -34,3 +34,4 @@ def beFriendly():
     print(""" 
           # texto opção amigável
           """)
+    

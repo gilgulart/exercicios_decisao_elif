@@ -18,3 +18,4 @@ elif p2 == menor:
     print("Você deveria comprar o segundo produto!")
 else:
     print("Você deveria comprar o terceiro produto!")
+    
