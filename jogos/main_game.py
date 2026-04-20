@@ -3,14 +3,15 @@ from jogos.systems.getChoice import getChoice, choiceMap
 from jogos.systems.map import showMap
 from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
-from jogos.story.introHistory import introHistory
-from jogos.story.history import history, toFight
+from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios
 from jogos.characters.rpg_game_person import Person
+from jogos.systems.rpg_combat import combat
 
 from colorama import Fore, init
 import pyfiglet
 import os
 import time
+import random
 
 
 
@@ -43,8 +44,7 @@ def main():
         transition(.2)
     
         type_text("""
-    Assim que as pessoas o avistam, já o reconhecem das lendas:
-    seu nome é Gilberto, o Pombo.""")
+    Assim que as pessoas o avistam, já o reconhecem das lendas: seu nome é Gilberto, o Pombo.""")
         transition(.2)
         
         type_text("""
@@ -75,22 +75,51 @@ def main():
     a menina pegou seus equipamentos e desafiou a fera para um combate.""")
         transition(.2)
         
+        
+    boss = random.choice(bossesFaceis)
+    combat(player, boss)
+        
     
     showMap()
     choice = choiceMap()
     
     if choice == 1:
-      print("história Planícies douradas + combate")
+      boss = random.choice(bossesFaceis)
+      
+      type_text("""
+Outrora viva com o canto dos pássaros e o sussurro das folhas, a Floresta Antiga guardava paz sob suas copas imensas.
+Agora, entre raízes retorcidas e sombras profundas, algo observa em silêncio...""")
+      #fácil
+      combat(player, boss)
     
     elif choice == 2:
-        print("história Pântano Arcano + combate")
+        boss = random.choice(bossesFaceis)
+        
+        type_text(""" 
+As águas escuras do Pântano Arcano já refletiram estrelas e lua cheia.
+Hoje apenas névoas inquietas dançam sobre a lama, escondendo segredos que não deveriam ser despertados...""")
+        #fácil
+        combat(player, boss)
 
     elif choice == 3:
-        print("história Montanhas Geladas + combate")
+        boss = random.choice(bossesMedios)
+        
+        type_text("""
+As Montanhas Geladas se erguem como gigantes de pedra e gelo, desafiando qualquer viajante a provar seu valor.
+Cada passo é uma conquista, cada rajada de vento uma prova — apenas os mais determinados ousam continuar a escalada.""")
+        #médio
+        combat(player, boss)
 
     elif choice == 4:
-        print("história Terras Vulcânicas + combate")
+        boss = random.choice(bossesDificeis)
+        
+        type_text("""
+Nas Terras Vulcânicas, o próprio chão parece rejeitar aqueles que ousam atravessá-lo.
+Rios de lava cortam o caminho, o ar queima nos pulmões e o horizonte é tomado por fogo e cinzas
+como se o mundo gritasse que ali não há vitória possível.""")
 
+        combat(player, boss)
+        
     
 
 

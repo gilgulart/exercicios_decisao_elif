@@ -11,7 +11,7 @@ def showMap():
                      🌾 PLANÍCIES DOURADAS
                                │
                                │
-                (1) 🌲 floresta antiga
+                (1) 🌲 Floresta Antiga
                                │
                                │
 (2) 🧙 Pântano Arcano ───── Estrada dos Reinos ───── (3) 🏔 Montanhas Geladas
@@ -25,7 +25,7 @@ def showMap():
 
 Escolha para onde viajar:
 
-1 - Planícies Douradas
+1 - Floresta Antiga
 2 - Pântano Arcano
 3 - Montanhas Geladas
 4 - Terras Vulcânicas
