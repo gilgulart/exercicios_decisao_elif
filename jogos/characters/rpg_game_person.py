@@ -74,6 +74,8 @@ class Person:
             self.resistencia = 10
             self.cor = COR_ARQUEIRO
 
+        self.nome = input("Digite o nome do seu personagem: ")
+
 
 
         # OLHOS
@@ -172,3 +174,7 @@ class Person:
     {self.cor}     / \\
     {self.cor}    /   \\{RESET}
     """)
+
+if __name__ == "__main__":
+    jogador = Person()
+    jogador.mostrar()

@@ -7,6 +7,7 @@ import time
 import math
 from jogos.arts.ascii_arts import gameOver
 
+jogador = Person()
 
 def dado(minimo, maximo):
     # efeito de contagem
@@ -97,4 +98,8 @@ def combate(jogador: Person, boss: Boss):
         boss.derrotado = True
         jogador.experienciaAtual += boss.valorExperiencia
         jogador.atualizar()
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 2392fb4 (quase tudo pronto)

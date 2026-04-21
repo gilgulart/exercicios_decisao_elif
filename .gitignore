@@ -8,3 +8,5 @@ __pycache__/
 # ambiente
 .venv/
 env/
+
+exercicios_decisao_elif/
