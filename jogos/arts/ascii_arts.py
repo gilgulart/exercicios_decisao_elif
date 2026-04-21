@@ -22,4 +22,3 @@ def gameOver():
     print(Fore.RED + gameOver.center(WIDTH))
     type_text("Você morreu.")
     
-    

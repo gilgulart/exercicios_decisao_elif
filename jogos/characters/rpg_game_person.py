@@ -21,9 +21,6 @@ COR_MAGO = Fore.BLACK       # preto
 COR_ARQUEIRO = Fore.WHITE   # branco
 
 
-
-
-
 class Person:
     def __init__(self):
         self.criar_personagem()
@@ -33,6 +30,7 @@ class Person:
         self.nivel = 1
         self.experienciaNecessaria = 20
         
+        self.nome = input("Digite o nome do seu personagem: ")
         # GÊNERO
         print(Fore.WHITE + """
         Gênero do(a) personagem:
@@ -75,6 +73,7 @@ class Person:
             self.dano = 12
             self.resistencia = 10
             self.cor = COR_ARQUEIRO
+
 
 
         # OLHOS
@@ -124,21 +123,31 @@ class Person:
                 self.mochila.append(i.loot)
 
     def escolherItem(self):
-         if len(self.mochila) == 0:
+        if len(self.mochila) == 0:
+            print("Sua mochila está vazia.")
             return None
-         else:
-            print("Itens disponíveis na mochila:")
-            for index, item in enumerate(self.mochila):
-                print(f"{index + 1}. {item.nomeItem}")
-            while True:
-                    choice = int(input("Digite o número do item que deseja usar: "))
-                    if 1 <= choice <= len(self.mochila):
-                        self.mochila[choice - 1].mostrarAtributosItem()
-                        self.mochila[choice - 1].aplicarEfeito(self)
-                        break
-                    else:
-                        print("Digite um número válido.")
 
+        print("Itens disponíveis na mochila:")
+
+        for index, item in enumerate(self.mochila):
+            print(f"{index + 1}. {item.nomeItem}")
+
+        while True:
+            try:
+                choice = int(input("Digite o número do item que deseja usar: "))
+
+                if 1 <= choice <= len(self.mochila):
+                    item = self.mochila.pop(choice - 1)
+
+                    item.mostrarAtributosItem()
+                    item.aplicarEfeito(self)
+
+                    return item
+                else:
+                    print("Digite um número válido.")
+
+            except ValueError:
+                print("Digite apenas números.")
     def atualizar(self):
         while self.experienciaNecessaria <= self.experienciaAtual:
             self.nivel = self.nivel + 1

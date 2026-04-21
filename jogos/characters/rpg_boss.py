@@ -14,18 +14,30 @@ class Boss:
         self.valorExperiencia = valorExperiencia
         
 
+    def informacoesBoss(self):
+        print(f"""
+    ================================================================================
+    {self.nome} - Hp: {self.hpBoss()}
+    ATK: {self.dano}
+    DEF: {self.resistencia}
+    ================================================================================
+    """) 
+
+
     def hpBoss(self):
-        print(f"{self.nome} - Hp: ", end="")
+        barra = ""
         for i in range(int(self.vida)):
-            print("|", end="")
-        print("\n")
+            barra += "|"
+        return barra
+    
+
 
 # DIFICULDADE 1 (FÁCIL)
 
 # DIFICULDADE 1
 
 slimeGigante = Boss("uma massa gosmenta gigante que se arrasta lentamente",
-                    "Gloop", 3, 60, 1, 1,True, loot=item_slime, valorExperiencia=30)
+                    "Gloop", 3, 60, 1, True,1, loot=item_slime, valorExperiencia=30)
 
 esqueletoRei = Boss("um esqueleto coroado empunhando uma espada enferrujada",
                     "Bone King", 4, 50, 2, 1, loot=item_esqueleto, valorExperiencia=30)
@@ -46,7 +58,7 @@ loboSombrio = Boss("um lobo envolto em sombras que se move silenciosamente",
                    "Shadowfang", 5, 70, 2, 1, loot=item_loboSombrio, valorExperiencia=35)
 
 espirito = Boss("um espírito errante que atravessa paredes e sussurra",
-                "Whisper", 4, 55, 1, 1, loot=item_espirito, valorExperiencia=30)
+                "Whisper", 4, 5, 1, 1, loot=item_espirito, valorExperiencia=30)
 
 bandido = Boss("um ladrão ágil que tenta te atacar de surpresa",
                "Ravik", 5, 60, 2, 1, loot=item_bandido, valorExperiencia=30)

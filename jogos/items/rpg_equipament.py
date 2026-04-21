@@ -12,26 +12,53 @@ class Item:
 
     def aplicarEfeito(self, jogador):
         if self.efeitoItem == 1:
-            self.efeitoItem = "Cura"
-            self.funcaoItem = "Suporte"
             jogador.hp += self.bonus_defesa
+            print(f"{self.nomeItem} usado! +{self.bonus_defesa} HP")
+
         elif self.efeitoItem == 2:
-            self.efeitoItem = "Dano extra"
-            self.funcaoItem = "Ataque"
             jogador.dano += self.bonus_ataque
+            print(f"{self.nomeItem} usado! +{self.bonus_ataque} ATK")
+
         elif self.efeitoItem == 3:
-            self.efeitoItem = "Resistencia extra"
-            self.funcaoItem = "Defesa"
             jogador.resistencia += self.bonus_defesa
+            print(f"{self.nomeItem} usado! +{self.bonus_defesa} DEF")
+
         else:
-            print("Sem efeitoItem")
+            print("Item sem efeito")
 
     def mostrarAtributosItem(self):
         print(f"Item: {self.nomeItem}")
-        print(f"Tipo: {self.tipoItem}")
+        print(f"Tipo: {self.getTipoTexto()}")
+        print(f"Efeito: {self.getEfeitoTexto()}")
+        print(f"Função: {self.getFuncaoTexto()}")
         print(f"Bônus de Ataque: {self.bonus_ataque}")
         print(f"Bônus de Defesa: {self.bonus_defesa}")
-        print(f"Função: {self.funcaoItem}")
+
+    def getTipoTexto(self):
+        tipos = {
+            1: "Comum",
+            2: "Mágico",
+            3: "Especial"
+        }
+        return tipos.get(self.tipoItem)
+
+
+    def getFuncaoTexto(self):
+        funcoes = {
+            1: "Ataque",
+            2: "Defesa",
+            3: "Suporte"
+        }
+        return funcoes.get(self.funcaoItem)
+
+
+    def getEfeitoTexto(self):
+        efeitos = {
+            1: "Cura",
+            2: "Dano Extra",
+            3: "Resistência Extra"
+        }
+        return efeitos.get(self.efeitoItem)
 
 # Dificuldade 1 (FÁCIL)
 
