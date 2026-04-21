@@ -5,7 +5,11 @@ from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios
 from jogos.characters.rpg_game_person import Person
+<<<<<<< HEAD
 from jogos.systems.rpg_combat import combate
+=======
+from jogos.systems.rpg_combat import combat
+>>>>>>> 09b96157312468ec0aa6bc8d093c1e6b26bd7050
 
 from colorama import Fore, init
 import pyfiglet
@@ -77,7 +81,11 @@ def main():
         
         
     boss = random.choice(bossesFaceis)
+<<<<<<< HEAD
     combate(player, boss)
+=======
+    combat(player, boss)
+>>>>>>> 09b96157312468ec0aa6bc8d093c1e6b26bd7050
         
     
     showMap()
