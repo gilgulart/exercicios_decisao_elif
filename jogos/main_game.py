@@ -5,7 +5,7 @@ from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios
 from jogos.characters.rpg_game_person import Person
-from jogos.systems.rpg_combat import combat
+from jogos.systems.rpg_combat import combate
 
 from colorama import Fore, init
 import pyfiglet
@@ -77,7 +77,7 @@ def main():
         
         
     boss = random.choice(bossesFaceis)
-    combat(player, boss)
+    combate(player, boss)
         
     
     showMap()
@@ -90,7 +90,7 @@ def main():
 Outrora viva com o canto dos pássaros e o sussurro das folhas, a Floresta Antiga guardava paz sob suas copas imensas.
 Agora, entre raízes retorcidas e sombras profundas, algo observa em silêncio...""")
       #fácil
-      combat(player, boss)
+      combate(player, boss)
     
     elif choice == 2:
         boss = random.choice(bossesFaceis)
@@ -99,7 +99,7 @@ Agora, entre raízes retorcidas e sombras profundas, algo observa em silêncio..
 As águas escuras do Pântano Arcano já refletiram estrelas e lua cheia.
 Hoje apenas névoas inquietas dançam sobre a lama, escondendo segredos que não deveriam ser despertados...""")
         #fácil
-        combat(player, boss)
+        combate(player, boss)
 
     elif choice == 3:
         boss = random.choice(bossesMedios)
@@ -108,7 +108,7 @@ Hoje apenas névoas inquietas dançam sobre a lama, escondendo segredos que não
 As Montanhas Geladas se erguem como gigantes de pedra e gelo, desafiando qualquer viajante a provar seu valor.
 Cada passo é uma conquista, cada rajada de vento uma prova — apenas os mais determinados ousam continuar a escalada.""")
         #médio
-        combat(player, boss)
+        combate(player, boss)
 
     elif choice == 4:
         boss = random.choice(bossesDificeis)
@@ -118,7 +118,7 @@ Nas Terras Vulcânicas, o próprio chão parece rejeitar aqueles que ousam atrav
 Rios de lava cortam o caminho, o ar queima nos pulmões e o horizonte é tomado por fogo e cinzas
 como se o mundo gritasse que ali não há vitória possível.""")
 
-        combat(player, boss)
+        combate(player, boss)
         
     
 

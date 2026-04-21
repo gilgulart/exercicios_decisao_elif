@@ -30,6 +30,7 @@ class Person:
         self.nivel = 1
         self.experienciaNecessaria = 20
         
+        self.nome = input("Digite o nome do seu personagem: ")
         # GÊNERO
         print(Fore.WHITE + """
         Gênero do(a) personagem:
@@ -73,7 +74,6 @@ class Person:
             self.resistencia = 10
             self.cor = COR_ARQUEIRO
 
-        self.nome = input("Digite o nome do seu personagem: ")
 
 
         # OLHOS
@@ -172,7 +172,3 @@ class Person:
     {self.cor}     / \\
     {self.cor}    /   \\{RESET}
     """)
-
-if __name__ == "__main__":
-    jogador = Person()
-    jogador.mostrar()
