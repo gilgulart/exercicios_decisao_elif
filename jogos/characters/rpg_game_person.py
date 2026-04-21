@@ -1,7 +1,10 @@
 from jogos.systems.getChoice import getChoice
 from colorama import Fore, Style, init
-from rpg_equipament import *
-from rpg_boss import *
+from jogos.items.rpg_equipament import *
+from jogos.characters.rpg_boss import *
+import shutil
+
+WIDTH = shutil.get_terminal_size().columns
 
 
 init()
@@ -18,18 +21,6 @@ COR_MAGO = Fore.BLACK       # preto
 COR_ARQUEIRO = Fore.WHITE   # branco
 
 
-def getChoice():
-    while True:
-        try:
-            choice = int(input("Digite o número da sua escolha: "))
-            if choice <= 0 or choice > 3:
-                print("Digite um valor válido")
-            else:
-                return choice
-        except ValueError:
-            print("Digite um número válido")
-
-
 class Person:
     def __init__(self):
         self.criar_personagem()
@@ -38,9 +29,22 @@ class Person:
         self.experienciaAtual = 0
         self.nivel = 1
         self.experienciaNecessaria = 20
+        
+        # GÊNERO
+        print(Fore.WHITE + """
+        Gênero do(a) personagem:
+        1 - Masculino
+        2 - Feminino
+        """)
+        choice = getChoice()
+        if choice == 1:
+            self.genero = "Masculino"
+        else:
+            self.genero = "Feminino"            
+        
 
         # CLASSE
-        print("""
+        print(Fore.WHITE + """
         Classe do personagem:
         1 - Orc
         2 - Mago sombrio
@@ -69,6 +73,8 @@ class Person:
             self.resistencia = 10
             self.cor = COR_ARQUEIRO
 
+        self.nome = input("Digite o nome do seu personagem: ")
+
 
         # OLHOS
         print("""
@@ -95,13 +101,20 @@ class Person:
         3 - Ruivo
         """)
         choice = getChoice()
+        
+        if self.genero == "Masculino":
+            cabelo_base = "/////////"
+            
+        if self.genero == "Feminino":
+            cabelo_base = """@@=====@@"""
+        
 
         if choice == 1:
-            self.cabelo = AMARELO + "/////////" + RESET
+            self.cabelo = AMARELO + cabelo_base + RESET
         elif choice == 2:
-            self.cabelo = CASTANHO + "/////////" + RESET
+            self.cabelo = CASTANHO + cabelo_base + RESET
         else:
-            self.cabelo = RUIVO + "/////////" + RESET
+            self.cabelo = RUIVO + cabelo_base + RESET
 
     def mochilaItens(self):
         self.mochila = [] 
@@ -110,21 +123,31 @@ class Person:
                 self.mochila.append(i.loot)
 
     def escolherItem(self):
-         if len(self.mochila) == 0:
+        if len(self.mochila) == 0:
+            print("Sua mochila está vazia.")
             return None
-         else:
-            print("Itens disponíveis na mochila:")
-            for index, item in enumerate(self.mochila):
-                print(f"{index + 1}. {item.nomeItem}")
-            while True:
-                    choice = int(input("Digite o número do item que deseja usar: "))
-                    if 1 <= choice <= len(self.mochila):
-                        self.mochila[choice - 1].mostrarAtributosItem()
-                        self.mochila[choice - 1].aplicarEfeito(self)
-                        break
-                    else:
-                        print("Digite um número válido.")
 
+        print("Itens disponíveis na mochila:")
+
+        for index, item in enumerate(self.mochila):
+            print(f"{index + 1}. {item.nomeItem}")
+
+        while True:
+            try:
+                choice = int(input("Digite o número do item que deseja usar: "))
+
+                if 1 <= choice <= len(self.mochila):
+                    item = self.mochila.pop(choice - 1)
+
+                    item.mostrarAtributosItem()
+                    item.aplicarEfeito(self)
+
+                    return item
+                else:
+                    print("Digite um número válido.")
+
+            except ValueError:
+                print("Digite apenas números.")
     def atualizar(self):
         while self.experienciaNecessaria <= self.experienciaAtual:
             self.nivel = self.nivel + 1
@@ -137,7 +160,7 @@ class Person:
     HP: {self.hp}
     ATK: {self.dano}
     DEF: {self.resistencia}
-{self.nivel}
+    LVL: {self.nivel}
 
       {self.cabelo}
     {self.cor}  |{self.olho}  {self.olho} |
@@ -150,4 +173,6 @@ class Person:
     {self.cor}    /   \\{RESET}
     """)
 
-jogador = Person()
+if __name__ == "__main__":
+    jogador = Person()
+    jogador.mostrar()
