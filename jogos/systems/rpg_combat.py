@@ -7,6 +7,7 @@ import time
 import math
 from jogos.arts.ascii_arts import gameOver
 
+jogador = Person()
 
 def dado(minimo, maximo):
     # efeito de contagem
