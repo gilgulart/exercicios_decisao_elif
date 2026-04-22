@@ -1,4 +1,5 @@
 import shutil
+from jogos.arts.ascii_arts import gameOver
 
 WIDTH = shutil.get_terminal_size().columns
 
@@ -20,6 +21,7 @@ def choiceMap_Boss(boss_liberado: bool) -> int:
             choice = int(input("Digite o número da sua escolha: ".center(WIDTH)))
             if choice == 0:
                 exit()
+                gameOver()
             elif choice < 1 or choice > limite:
                 print(f"Digite um valor entre 1 e {limite} (ou 0 para sair).".center(WIDTH))
             else:
