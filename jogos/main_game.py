@@ -1,17 +1,16 @@
 from jogos.arts.ascii_arts import title
 from jogos.systems.getChoice import getChoice, choiceMap_Boss
-from jogos.systems.map import showMap_Boss
 from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.characters.rpg_game_person import Person
+from jogos.characters.rpg_boss import bossesFaceis
 from jogos.systems.rpg_combat import combate
-from jogos.systems.exploration import exploration
-
+from jogos.systems.exploration import exploration, resetar_boss
+ 
 from colorama import Fore, init
-import pyfiglet
-import os
-import time
 import random
+import time
+ 
 
 
 
@@ -79,6 +78,8 @@ def main():
     transition(.2)
     
     prologo(player)
+    boss_intro = resetar_boss(random.choice(bossesFaceis))
+    combate(player, boss_intro)
     combates = 1
     
     combates = exploration(player, combates)    

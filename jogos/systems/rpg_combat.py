@@ -92,6 +92,7 @@ def combate(jogador: Person, boss: Boss):
             turnoJogador(jogador, boss)
     if jogador.hp <= 0:
         gameOver()
+        exit()
     elif boss.vida <= 0:
         print(f"Parabéns! Você derrotou {boss.nome} e ganhou {boss.valorExperiencia} de experiência!\n {boss.loot.nomeItem} adicionado à mochila.")
         boss.derrotado = True

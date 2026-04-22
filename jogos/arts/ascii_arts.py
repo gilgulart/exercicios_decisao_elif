@@ -20,5 +20,6 @@ def title():
 def gameOver():
     gameOver = pyfiglet.figlet_format("GAME OVER", font="epic")
     print(Fore.RED + gameOver.center(WIDTH))
-    type_text("Você morreu.")
+    type_text("Você perdeu.")
+    time.sleep(5)
     
