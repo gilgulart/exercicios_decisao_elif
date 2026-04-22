@@ -23,7 +23,7 @@ Agora, entre raízes retorcidas e sombras profundas, algo observa em silêncio..
     },
     2: {
         "nome": "Pântano Arcano",
-        "pool": bossesFaceis,
+        "pool": bossesFaceis + bossesMedios,
         "intro": """
 As águas escuras do Pântano Arcano já refletiram estrelas e lua cheia.
 Hoje apenas névoas inquietas dançam sobre a lama,
@@ -31,7 +31,7 @@ escondendo segredos que não deveriam ser despertados...""",
     },
     3: {
         "nome": "Montanhas Geladas",
-        "pool": bossesMedios,
+        "pool": bossesMedios + bossesDificeis,
         "intro": """
 As Montanhas Geladas se erguem como gigantes de pedra e gelo,
 desafiando qualquer viajante a provar seu valor.
@@ -40,7 +40,7 @@ apenas os mais determinados ousam continuar a escalada.""",
     },
     4: {
         "nome": "Terras Vulcânicas",
-        "pool": bossesDificeis,
+        "pool": bossesDificeis + bossesLendarios,
         "intro": """
 Nas Terras Vulcânicas, o próprio chão parece rejeitar aqueles que ousam atravessá-lo.
 Rios de lava cortam o caminho, o ar queima nos pulmões e o horizonte é tomado por fogo e cinzas
