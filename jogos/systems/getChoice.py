@@ -7,20 +7,23 @@ def getChoice():
         try:
             choice = int(input("Digite o número da sua escolha: ".center(WIDTH)))
             if choice <= 0 or choice > 3:
-                print("Digite um valor válido".center(WIDTH))
+                print("Digite um valor entre 1 e 3".center(WIDTH))
             else:
                 return choice
         except ValueError:
             print("Digite um número válido".center(WIDTH))
-def choiceMap():
+
+def choiceMap_Boss(boss_liberado: bool) -> int:
+    limite = 5 if boss_liberado else 4
     while True:
         try:
             choice = int(input("Digite o número da sua escolha: ".center(WIDTH)))
-            if choice < 0 or choice > 4:
-                print("Digite um valor válido".center(WIDTH))
-            elif choice == 0:
+            if choice == 0:
                 exit()
+            elif choice < 1 or choice > limite:
+                print(f"Digite um valor entre 1 e {limite} (ou 0 para sair).".center(WIDTH))
             else:
                 return choice
         except ValueError:
-            print("Digite um número válido".center(WIDTH))
+            print("Digite um número válido.".center(WIDTH))
+
