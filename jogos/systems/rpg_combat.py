@@ -30,7 +30,7 @@ def calcularDano(atacante, defensor):
     rolagem = dado(1, 20)
     print(f"Dado rolado: {rolagem}")
 
-    danoBase = atacante.dano - defensor.resistencia
+    danoBase = atacante.dano - 100 / (100 - defensor.resistencia)
 
     if danoBase < 0:
         danoBase = 0
