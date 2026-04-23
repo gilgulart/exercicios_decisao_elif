@@ -39,5 +39,3 @@ while True:
         print(frame)
         time.sleep(0.4)
 
-
-print("pedro esteve aqui novamente")

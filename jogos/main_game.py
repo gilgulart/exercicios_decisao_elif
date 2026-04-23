@@ -62,7 +62,6 @@ def prologo(player: Person):
     destruísse toda a Planície Dourada,
     a menina pegou seus equipamentos e desafiou a fera para um combate.""")
         transition(.2)
-        print("pedro esteve aqui aprendendo a comitar")
         
         
         
