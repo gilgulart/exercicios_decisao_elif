@@ -1,7 +1,7 @@
 print("Os dias da semana correspondente (1-Domingo, 2- Segunda, etc.) ")
 day_name = input("Digite o dia da semana: ").strip()
 
-if day_name in ("1", "2", "3", "4", "5", "6", "7"):
+if day_name in ("1", "2", "3", "4",):
     if day_name in ("1"):
         print("Hoje é Domingo!")
     if day_name in ("2"):
