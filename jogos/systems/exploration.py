@@ -5,7 +5,6 @@ from jogos.systems.rpg_combat import combate
 from jogos.systems.getChoice import choiceMap_Boss
 from jogos.utils.transition import transition
 from jogos.utils.prompt import type_text
- 
 from colorama import Fore
 import random
 import time

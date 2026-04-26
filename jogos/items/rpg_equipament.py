@@ -1,30 +1,46 @@
 class Item:
-    def __init__(self, nomeItem, tipoItem: int, bonus_ataque=0, bonus_defesa=0, efeitoItem=None, funcaoItem: int = 0):
+    def __init__(self, nomeItem, tipoItem: int, bonus_ataque=0, bonus_defesa=0, efeitoItem=None, funcaoItem: int = 0, sendoUsado: bool = False):
         self.nomeItem = nomeItem
         self.tipoItem = tipoItem
         self.bonus_ataque = bonus_ataque
         self.bonus_defesa = bonus_defesa
         self.efeitoItem = efeitoItem
         self.funcaoItem = funcaoItem
+        self.sendoUsado = sendoUsado
+
 
         # efeitoItem 1 = cura, efeitoItem 2 = dano extra, efeitoItem 3 = resistência extra
         # funcaoItem 1 = ataque, funcaoItem 2 = defesa, funcaoItem 3 = suporte
 
-    def aplicarEfeito(self, jogador):
+    def efeitoPorTurno(self, player):
         if self.efeitoItem == 1:
-            jogador.hp += self.bonus_defesa
+            player.hp += self.bonus_defesa
+
+    def aplicarEfeito(self, player):
+        if self.efeitoItem == 1:
+            player.hp += self.bonus_defesa
             print(f"{self.nomeItem} usado! +{self.bonus_defesa} HP")
 
         elif self.efeitoItem == 2:
-            jogador.dano += self.bonus_ataque
+            player.dano += self.bonus_ataque
             print(f"{self.nomeItem} usado! +{self.bonus_ataque} ATK")
 
         elif self.efeitoItem == 3:
-            jogador.resistencia += self.bonus_defesa
+            player.resistencia += self.bonus_defesa
             print(f"{self.nomeItem} usado! +{self.bonus_defesa} DEF")
 
         else:
             print("Item sem efeito")
+
+    def removerEfeito(self, player):
+        if self.efeitoItem == 1:
+            pass
+
+        elif self.efeitoItem == 2:
+            player.dano -= self.bonus_ataque
+
+        elif self.efeitoItem == 3:
+            player.resistencia -= self.bonus_defesa
 
     def mostrarAtributosItem(self):
         print(f"Item: {self.nomeItem}")

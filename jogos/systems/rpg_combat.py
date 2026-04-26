@@ -47,12 +47,17 @@ def calcularDano(atacante, defensor):
     else:
         return int(danoBase * 2.2)
 
-def turnoJogador(jogador: Person, boss: Boss):
+
+def turnoJogador(player: Person, boss: Boss, item: Item = None):
+    if player.itemAtual:
+        player.itemAtual.efeitoPorTurno(player)
+    else:
+        pass
     print(f"""
         ================================================================================  
-          Seu HP: {jogador.hp} 
-          ATK: {jogador.dano} 
-          DEF: {jogador.resistencia}
+          Seu HP: {player.hp} 
+          ATK: {player.dano} 
+          DEF: {player.resistencia}
         ================================================================================ 
 """)
         
@@ -64,38 +69,38 @@ def turnoJogador(jogador: Person, boss: Boss):
     choice = getChoice()
     
     if choice == 1:
-        danoJogador = calcularDano(jogador, boss)
+        danoJogador = calcularDano(player, boss)
         danoJogador = math.ceil(danoJogador)
         boss.vida -= danoJogador
         print(f"Você causou {danoJogador} de dano em {boss.nome}!")
 
     elif choice == 2:
-        jogador.mochilaItens()
-        jogador.escolherItem()
+        player.mochilaItens()
+        player.escolherItem()
         
     elif choice == 3:
         print("Você fugiu do combate!")
-        jogador.hp = 0 
+        player.hp = 0 
 
-def turnoBoss(jogador: Person, boss: Boss):
+def turnoBoss(player: Person, boss: Boss):
     boss.informacoesBoss()
     if boss.vida > 0:
-        danoBoss = calcularDano(boss, jogador)
+        danoBoss = calcularDano(boss, player)
         danoBoss = math.ceil(danoBoss)
-        jogador.hp -= danoBoss
+        player.hp -= danoBoss
         print(f"{boss.nome} causou {danoBoss} de dano em você!")
 
-def combate(jogador: Person, boss: Boss):
-    while jogador.hp > 0 and boss.vida > 0:
-        turnoBoss(jogador, boss)
-        if jogador.hp > 0:
-            turnoJogador(jogador, boss)
-    if jogador.hp <= 0:
+def combate(player: Person, boss: Boss):
+    while player.hp > 0 and boss.vida > 0:
+        turnoBoss(player, boss)
+        if player.hp > 0:
+            turnoJogador(player, boss)
+    if player.hp <= 0:
         gameOver()
         exit()
     elif boss.vida <= 0:
         print(f"Parabéns! Você derrotou {boss.nome} e ganhou {boss.valorExperiencia} de experiência!\n {boss.loot.nomeItem} adicionado à mochila.")
         boss.derrotado = True
-        jogador.experienciaAtual += boss.valorExperiencia
-        jogador.atualizar()
+        player.experienciaAtual += boss.valorExperiencia
+        player.atualizar()
         
