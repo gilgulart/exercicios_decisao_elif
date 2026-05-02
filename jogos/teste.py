@@ -38,3 +38,4 @@ while True:
         limpar()
         print(frame)
         time.sleep(0.4)
+
