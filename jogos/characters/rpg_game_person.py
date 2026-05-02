@@ -57,6 +57,8 @@ class Person:
             self.meuMaiusculo = "Meu"
             self.oMaiusculo = "O"
             self.dele = "dele"
+            self.sozinho = "sozinho"
+            self.tomadoMaisculo = "Tomado"
         else:
             self.genero = "Feminino"            
             self.um = "uma"
@@ -71,6 +73,8 @@ class Person:
             self.ele = "ela"
             self.oMaiusculo = "A"
             self.dele = "dela"
+            self.sozinho = "sozinha"
+            self.tomadoMaisculo = "Tomada"
 
         # CLASSE
         print(Fore.WHITE + """
