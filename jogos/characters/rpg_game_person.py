@@ -203,14 +203,14 @@ class Person:
 
             except ValueError:
                 print("Digite apenas números.")
-    def atualizar(self):     
-        while self.experienciaNecessaria <= self.experienciaAtual:
-            if self.classe == "Orc":
+    def atualizar(self):   
+        if self.classe == "Orc":
                 self.hp = 150
-            elif self.classe == "Mago":
+        elif self.classe == "Mago":
                 self.hp = 80
-            elif self.classe == "Arqueiro":
-                self.hp = 100             
+        elif self.classe == "Arqueiro":
+                self.hp = 100  
+        while self.experienciaNecessaria <= self.experienciaAtual:             
             self.nivel = self.nivel + 1
             self.experienciaNecessaria = (self.experienciaNecessaria*50)/100 + self.experienciaNecessaria
             self.dano += math.ceil(math.sqrt(self.nivel))

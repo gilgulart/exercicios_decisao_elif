@@ -2,57 +2,57 @@ from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.characters.rpg_game_person import Person
 
-class maldicaoFamilia:
+class MaldicaoPessoal:
 
-    def PosPrimeiraLuta(player: Person):
+    def PosPrimeiraLuta(self, player):
         dialogosPosPrimeiraLuta = []
 
         dialogosPosPrimeiraLuta.append(f"""Gilberto lança uma maldição diretamente sobre {player.o} {player.menino}, condenando-{player.o} à morte em até um ano""")
 
         dialogosPosPrimeiraLuta.append(f"""Sem saber o que fazer, {player.nome} se vê diante de um destino cruel: esperar, dia após dia,
-                                        até que a maldição se cumpra… ou encontrar uma forma de quebrá-la.""")
+        até que a maldição se cumpra… ou encontrar uma forma de quebrá-la.""")
         
         dialogosPosPrimeiraLuta.append(f"""{player.eleMaisculo} até considera aceitar seu fim, mas algo dentro {player.dele} se recusa a desistir. No entanto,
-                                        as palavras de Gilberto ecoam em sua mente: nenhum remédio no mundo seria capaz de curá-lo(a).""")
+        as palavras de Gilberto ecoam em sua mente: nenhum remédio no mundo seria capaz de curá-lo(a).""")
         
         dialogosPosPrimeiraLuta.append(f"""Os dias passam, e {player.o} {player.menino} vaga sem rumo, {player.tomado} pela angústia e pela incerteza.""")
         
         dialogosPosPrimeiraLuta.append(f"""Foi então que, do nada, surge um senhor muito velho, de aparência misteriosa, que se aproxima lentamente e diz:""")
         
         dialogosPosPrimeiraLuta.append(f"""— “{player.meuMaiusculo} jovem, vejo que você está enfrentando problemas que parecem não ter solução… mas talvez eu possa ajudá-l{player.o}.
-                                        Ouvi falar de um artefato lendário chamado Elixir da Vida, capaz de curar qualquer mal. Porém, ele só pode ser encontrado na caverna
-                                        de Gilberto, o Pombo. Se decidir tentar a sorte, eu tenho um mapa que pode guiá-l{player.o}… mas recomendo que treine antes de enfrentar a 
-                                       criatura alada.”""")
+        Ouvi falar de um artefato lendário chamado Elixir da Vida, capaz de curar qualquer mal. Porém, ele só pode ser encontrado na caverna
+        de Gilberto, o Pombo. Se decidir tentar a sorte, eu tenho um mapa que pode guiá-l{player.o}… mas recomendo que treine antes de enfrentar a 
+        criatura alada.”""")
         
         dialogosPosPrimeiraLuta.append(f"""Assim que termina de falar, o velho desaparece como em um passe de mágica.""")
         
         dialogosPosPrimeiraLuta.append(f"""Agora, com um novo objetivo em mente, {player.o} jovem finalmente enxerga uma chance de sobreviver — e parte em uma longa jornada em 
-                                       busca do elixir.""")
+        busca do elixir.""")
 
         for i in dialogosPosPrimeiraLuta:
             type_text(i)
             transition(.2)
 
-    def PreSegundaLuta(player: Person):
+    def PreSegundaLuta(self, player):
         dialogosPreSegundaLuta = []
 
         dialogosPreSegundaLuta.append(f"""Depois de uma longa jornada, enfrentando todo tipo de criatura e atravessando os mais diversos biomas de Eldoria,
-                                       {player.o} jovem finalmente alcança as regiões mais profundas do mundo.""")
+        {player.o} jovem finalmente alcança as regiões mais profundas do mundo.""")
 
         dialogosPreSegundaLuta.append(f"""Seu objetivo é claro: enfrentar o grandioso Gilberto, o Pombo, e conquistar o lendário Elixir da Vida — sua única
-                                       chance de escapar da morte que se aproxima a cada dia.""")
+        chance de escapar da morte que se aproxima a cada dia.""")
         
         dialogosPreSegundaLuta.append(f"""Mas há um problema.""")
         
         dialogosPreSegundaLuta.append(f"""Derrotar a criatura mais temida de toda Eldoria não será nada fácil.""")
         
         dialogosPreSegundaLuta.append(f"""Caminhando pela região mais profunda, o ar se torna pesado, e o silêncio, inquietante. À sua frente, surge uma 
-                                      caverna sombria. Apenas ao olhar, {player.nome} já tem certeza — aquele é o covil de Gilberto.""")
+        caverna sombria. Apenas ao olhar, {player.nome} já tem certeza — aquele é o covil de Gilberto.""")
         
         dialogosPreSegundaLuta.append(f"""Sem hesitar, {player.ele} entra.""")
         
         dialogosPreSegundaLuta.append(f"""Lá dentro, uma cena inesperada: Gilberto está tranquilamente sentado, lendo um livro de filosofia, como se nada 
-                                      estivesse acontecendo. Logo atrás dele, uma enorme montanha de ouro e tesouros se ergue.""")
+        estivesse acontecendo. Logo atrás dele, uma enorme montanha de ouro e tesouros se ergue.""")
         
         dialogosPreSegundaLuta.append(f"""Mas nada disso importa.""")
 
@@ -68,13 +68,13 @@ class maldicaoFamilia:
             type_text(i)
             transition(.2)
 
-    def PosSegundaLuta(player: Person):
+    def PosSegundaLuta(self, player):
         dialogosPosSegundaLuta = []
 
         dialogosPosSegundaLuta.append(f"""Gilberto cai.""")
 
         dialogosPosSegundaLuta.append(f"""O impacto ecoa pela caverna, levantando poeira e silenciando tudo ao redor. {player.oMaiusculo} jovem permanece
-                                       de pé, quase sem forças, sentindo o peso de cada ferimento.""")
+        de pé, quase sem forças, sentindo o peso de cada ferimento.""")
 
         dialogosPosSegundaLuta.append(f"""O Elixir da Vida está logo ali.""")
 

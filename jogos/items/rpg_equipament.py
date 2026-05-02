@@ -138,3 +138,7 @@ item_golem = Item("Núcleo de Pedra", 1, bonus_defesa=14, efeitoItem=3, funcaoIt
 item_deusGuerra = Item("Espada da Guerra Eterna", 1, bonus_ataque=18, efeitoItem=2, funcaoItem=1)
 
 item_entidade = Item("Fragmento do Vazio", 2, bonus_ataque=20, efeitoItem=2, funcaoItem=1)
+
+# Elixir da vida
+
+elixir_da_vida = Item("Elixir da vida", 1, bonus_defesa=10000, efeitoItem=1, funcaoItem=3)

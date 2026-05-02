@@ -1,13 +1,12 @@
 from jogos.arts.ascii_arts import title
-from jogos.systems.getChoice import getChoice, choiceMap_Boss
 from jogos.utils.prompt import type_text
 from jogos.utils.transition import transition
 from jogos.characters.rpg_game_person import Person
-from jogos.characters.rpg_boss import bossesFaceis
-from jogos.systems.rpg_combat import combate
-from jogos.systems.exploration import exploration, resetar_boss
+from jogos.characters.rpg_boss import gilbertoPombo
+from jogos.systems.exploration import exploration
 from colorama import Fore, init
-import random
+from jogos.systems.firstBattle import primeiroCombate
+from jogos.falas.escolherHistoria import historia
 import time
  
 init()
@@ -48,11 +47,12 @@ def main():
     transition(.2)
     
     prologo(player)
-    boss_intro = resetar_boss(random.choice(bossesFaceis))
-    combate(player, boss_intro)
-    combates = 1
+    transition(.2)
+    primeiroCombate(player, gilbertoPombo)
+    transition(.2)
     
-    combates = exploration(player, combates)    
+    combates = 0
+    combates = exploration(player)  
     
     
 

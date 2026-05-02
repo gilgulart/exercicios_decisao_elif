@@ -1,11 +1,12 @@
 from jogos.characters.rpg_game_person import Person
-from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios
+from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios, gilbertoPombo
 from jogos.systems.map import showMap_Boss
 from jogos.systems.rpg_combat import combate
 from jogos.systems.getChoice import choiceMap_Boss
 from jogos.utils.transition import transition
 from jogos.utils.prompt import type_text
 from colorama import Fore
+from jogos.falas.escolherHistoria import historia
 import random
 import time
  
@@ -60,7 +61,8 @@ def sortear(pool: list):
     boss = random.choice(pool)
     return resetar_boss(boss)
  
-def exploration(player: Person, combates: int) -> int:
+def exploration(player: Person) -> int:
+    combates = 0
     while True:
         boss_liberado = combates >= COMBATES_PARA_BOSS_FINAL
         showMap_Boss(boss_liberado)
@@ -72,11 +74,12 @@ O horizonte racha. Um rugido que faz a terra tremer ecoa por toda Eldoria.
 A hora da verdade chegou — o Boss Final aguarda na Região Desconhecida.""" + Fore.RESET)
             transition(.15)
  
-            boss = sortear(bossesLendarios)
+            boss = gilbertoPombo
+            historia.PreSegundaLuta(player)
             combate(player, boss)
             combates += 1
             break
- 
+
         regiao = REGIOES[choice]
         type_text(regiao["intro"])
         transition(.2)

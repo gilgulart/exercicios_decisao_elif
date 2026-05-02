@@ -6,6 +6,7 @@ import random
 import time
 import math
 from jogos.arts.ascii_arts import gameOver
+from jogos.falas.escolherHistoria import historia
 
 
 def dado(minimo, maximo):
@@ -99,8 +100,14 @@ def combate(player: Person, boss: Boss):
         gameOver()
         exit()
     elif boss.vida <= 0:
-        print(f"Parabéns! Você derrotou {boss.nome} e ganhou {boss.valorExperiencia} de experiência!\n {boss.loot.nomeItem} adicionado à mochila.")
-        boss.derrotado = True
-        player.experienciaAtual += boss.valorExperiencia
-        player.atualizar()
-        
+        if boss == gilbertoPombo:
+            historia.PosSegundaLuta(player)
+            boss.derrotado = True
+            player.experienciaAtual += boss.valorExperiencia
+            player.atualizar()
+        else:       
+            print(f"Parabéns! Você derrotou {boss.nome} e ganhou {boss.valorExperiencia} de experiência!\n {boss.loot.nomeItem} adicionado à mochila.")
+            boss.derrotado = True
+            player.experienciaAtual += boss.valorExperiencia
+            player.atualizar()
+            

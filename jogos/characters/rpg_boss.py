@@ -116,6 +116,11 @@ deusGuerra = Boss("uma entidade divina que carrega o peso de incontáveis batalh
 entidadeCosmica = Boss("uma entidade além da compreensão humana que distorce a realidade",
                        "Voidrex", 25, 350, 15, 4, loot=item_entidade, valorExperiencia=3500)
 
+# BOSS FINAL
+
+gilbertoPombo = Boss("um pombo filósofo gigantesco sedento por sangue",
+                     "Gilberto", 25, 350, 15, 5, loot=elixir_da_vida, valorExperiencia=10000)
+
 todosBosses = [
     slimeGigante, 
     esqueletoRei, 
@@ -181,3 +186,4 @@ bossesLendarios = [
     deusGuerra,
     entidadeCosmica
     ]
+
