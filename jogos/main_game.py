@@ -26,9 +26,9 @@ def prologo(player: Person):
     dialogos.append(f"""
     Assim que as pessoas o avistam, já o reconhecem das lendas: seu nome é Gilberto, o Pombo""")
 
-    dialogos.append(f"""Diante desse caos, e sabendo que alguém precisava detê-lo antes que
-    destruísse toda a Planície Dourada,
-    {player.o} {player.menino} pegou seus equipamentos e desafiou a fera para um combate.""")    
+    dialogos.append(f"""
+    Diante desse caos, e sabendo que alguém precisava detê-lo antes que destruísse toda a Planície Dourada, {player.o} {player.menino}
+    pegou seus equipamentos e desafiou a fera para um combate.""")    
     
     for d in dialogos:
         type_text(d)

@@ -1,5 +1,5 @@
 from jogos.characters.rpg_game_person import Person
-from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios, gilbertoPombo
+from jogos.characters.rpg_boss import bossesFaceis, bossesMedios, bossesDificeis, bossesLendarios, gilbertoPombo, todosBosses
 from jogos.systems.map import showMap_Boss
 from jogos.systems.rpg_combat import combate
 from jogos.systems.getChoice import choiceMap_Boss
@@ -48,46 +48,49 @@ Rios de lava cortam o caminho, o ar queima nos pulmões e o horizonte é tomado 
     },
 }
  
-def resetar_boss(boss):
-    from jogos.characters.rpg_boss import todosBosses
-    for b in todosBosses:
-        if b.nome == boss.nome:
-            boss.vida = b.vida
-            boss.derrotado = False
-            break
-    return boss
- 
 def sortear(pool: list):
-    boss = random.choice(pool)
-    return resetar_boss(boss)
+    disponiveis = [b for b in pool if not b.derrotado]
+
+    if not disponiveis:
+        return None
+
+    return random.choice(disponiveis)
  
 def exploration(player: Person) -> int:
     combates = 0
-    while True:
-        boss_liberado = combates >= COMBATES_PARA_BOSS_FINAL
-        showMap_Boss(boss_liberado)
-        choice = choiceMap_Boss(boss_liberado)
- 
-        if choice == 5:
-            type_text(Fore.RED + """
-O horizonte racha. Um rugido que faz a terra tremer ecoa por toda Eldoria.
-A hora da verdade chegou — o Boss Final aguarda na Região Desconhecida.""" + Fore.RESET)
-            transition(.15)
- 
-            boss = gilbertoPombo
-            historia.PreSegundaLuta(player)
-            combate(player, boss)
-            combates += 1
-            break
+    while any(not b.derrotado for b in todosBosses):
+            boss_liberado = combates >= COMBATES_PARA_BOSS_FINAL
+            showMap_Boss(boss_liberado)
+            choice = choiceMap_Boss(boss_liberado)
+    
+            if choice == 5:
+                if gilbertoPombo.derrotado:
+                    type_text("Você já derrotou o Boss Final.")
+                    continue
+                type_text(Fore.RED + """
+    O horizonte racha. Um rugido que faz a terra tremer ecoa por toda Eldoria.
+    A hora da verdade chegou — o Boss Final aguarda na Região Desconhecida.""" + Fore.RESET)
+                transition(.15)
+    
+                boss = gilbertoPombo
+                historia.PreSegundaLuta(player)
+                combate(player, boss)
+                combates += 1
+                continue
 
-        regiao = REGIOES[choice]
-        type_text(regiao["intro"])
-        transition(.2)
- 
-        boss = sortear(regiao["pool"])
-        combate(player, boss)
-        combates += 1
- 
-        time.sleep(0.8)
- 
+            regiao = REGIOES[choice]
+            boss = sortear(regiao["pool"])
+
+            if boss is None:
+                 type_text("Você já derrotou todos os bosses dessa região")
+                 transition(.2)
+                 continue
+            
+            type_text(regiao["intro"])
+            transition(.2)
+            combate(player, boss)
+            combates+=1
+
+    type_text("Parabéns, você derrotou todos os monstros de Eldoria, o reino agora está livre de todo o mal, muito obrigado")
+
     return combates

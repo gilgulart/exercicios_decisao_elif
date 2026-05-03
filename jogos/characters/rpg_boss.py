@@ -148,7 +148,9 @@ todosBosses = [
     golemPedra,
 
     deusGuerra,
-    entidadeCosmica
+    entidadeCosmica,
+
+    gilbertoPombo
 ]
 
 bossesFaceis = [
